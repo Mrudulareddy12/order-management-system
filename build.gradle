@@ -1,0 +1,65 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.0.RELEASE")
+        
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+    baseName = 'my-spring-boot'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+   	 compile("mysql:mysql-connector-java:8.0.11")
+   	 compile("org.springframework.boot:spring-boot-starter-web")
+     compile("org.springframework.boot:spring-boot-starter-data-jpa")
+     compile("org.springframework.boot:spring-boot-configuration-processor")
+     compile("org.springframework.boot:spring-boot-devtools")
+     compile("org.springframework.boot:spring-boot-starter-tomcat")
+     compile("org.springframework.boot:spring-boot-starter-web")
+     compile("org.springframework.boot:spring-boot-starter-test")
+     compile("org.json:json:20160810")
+
+     compile("com.h2database:h2:1.4.194")
+     testCompile("junit:junit") 
+     // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+
+    // https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-retry
+    implementation 'io.github.resilience4j:resilience4j-retry:1.6.0'
+    
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+      // JUnit Jupiter API for assertions
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1' // Or the latest version available
+
+    // Mockito for mocking dependencies
+    testImplementation 'org.mockito:mockito-core:4.1.0' // Or the latest version available
+
+
+
+
+    
+    
+
+}
+
+
+
+
